@@ -7,3 +7,10 @@ body{
   font-family: "Poppins", sans-serif;
   font-family: "Lato", sans-serif;
 } */
+
+.bg-custom {
+  background: url('./Assets/cloud-storage-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode:multiply ;
+}

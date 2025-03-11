@@ -47,9 +47,9 @@ const Faqs = () => {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="p-6 max-w-4xl mx-auto min-w-full ">
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">FAQs</h1>
-      <div className="bg-blue-50 rounded-lg p-6">
+      <div className="bg-blue-50 rounded-lg p-6 w-full">
         {faqs.map((faq, index) => (
           <FAQItem
             key={index}
