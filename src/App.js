@@ -7,15 +7,17 @@ import Company from './Componets/who/Company'
 import Leadership from './Componets/who/Leadership'
 import RISEwithSAP from './Componets/Solution/RISEwithSAP'
 import Migration from './Componets/Solution/Migration';
-
-import Main from './Componets/Main';
-import Expertise from './Componets/Expertise'
-import Technologies from './Componets/Technologies';
-import Testimonial from './Componets/Testimonial'
-import Faqs from "./Componets/Faqs"
+import Successfactors from './Componets/Solution/Successfactors';
+import Exim from './Componets/Solution/Exim';
+import Consultant from './Componets/Solution/Consultant';
+import Consulting from './Componets/Consulting/Consulting-services';
+import Sapams from './Componets/Consulting/Sapams'
+import Sapbtp from './Componets/Consulting/Sapbtp'
 import Form from "./Componets/Form"
 import Footer from './Componets/Footer'
-import Exim from './Componets/Solution/Exim';
+import Career from './Componets/Career';
+import Contact from './Componets/Contact';
+import Blogs from './Componets/Blogs';
 
 
 
@@ -33,27 +35,22 @@ function App() {
         <Route path="/s4hana-migration" element={<Migration />} />
         <Route path="/exim" element={<Exim />} />
 
-        {/* <Route path="/fiori-consultants" element={<Leadership />} />
-        <Route path="/successfactors-integration" element={<Leadership />} />
-        <Route path="/openui5-demo" element={<Leadership />} />
-        <Route path="/consulting-services" element={<Leadership />} />
-        <Route path="/technical" element={<Leadership />} />
-        <Route path="/migration" element={<Leadership />} />
-        <Route path="/ams-support" element={<Leadership />} />
-        <Route path="/sap-btp" element={<Leadership />} />
-        <Route path="/knowledge-center" element={<Leadership />} />
-        <Route path="/career" element={<Leadership />} />
-        <Route path="/contact" element={<Leadership />} />
-        <Route path="/blogs" element={<Leadership />} />
-        <Route path="/ams-support" element={<Leadership />} />
-        <Route path="/ams-support" element={<Leadership />} />
-        <Route path="/ams-support" element={<Leadership />} /> */}
+        <Route path="/fiori-consultants" element={<Consultant />} />
+        <Route path="/successfactors-integration" element={<Successfactors />} />
+        <Route path="/consulting-services" element={<Consulting />} />
+        {/* <Route path="/technical" element={<Leadership />} />
+        <Route path="/migration" element={<Leadership />} /> */}
+        <Route path="/ams-support" element={<Sapams />} />
+        {/* <Route path="/sap-btp" element={<Sapbtp />} /> */}
+        {/* <Route path="/knowledge-center" element={<Leadership />} /> */}
+        <Route path="/career" element={<Career />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/blogs" element={<Blogs />} />
+        {/* <Route path="/ams-support" element={<Leadership />} /> */}
+        {/* <Route path="/ams-support" element={<Leadership />} /> */}
+        {/* <Route path="/ams-support" element={<Leadership />} /> */}
       </Routes>
-      {/* <Main />
-      <Expertise />
-      <Technologies />
-      <Testimonial />
-      <Faqs /> */}
+
       <Form />
       <Footer />
 

@@ -28,7 +28,7 @@ const SAPConsultingContact = () => {
     <div className="min-h-screen bg-white p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
-          <p className="text-blue-400 text-sm mb-2">Get in touch with</p>
+          <p className="text-blue-400 text-3xl mb-2 tracking-widest">Get in touch with</p>
           <h1 className="text-2xl md:text-4xl font-bold text-gray-900">
             India's Leading SAP Digital Transformation and Consulting Partner
           </h1>
