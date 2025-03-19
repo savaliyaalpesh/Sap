@@ -57,6 +57,7 @@ const TestimonialSection = () => {
     ]
   };
 
+  const slideAnimation = "transition-all duration-500 ease-in-out";
   // State for tracking pagination
   const [intCurrentPage, setIntCurrentPage] = useState(0);
   const [domCurrentPage, setDomCurrentPage] = useState(0);
@@ -148,131 +149,166 @@ const TestimonialSection = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Testimonial Card Component
-  const TestimonialCard = ({ testimonial }) => (
-    <div className="w-full bg-white p-6 shadow-lg rounded-xl relative border border-gray-200 h-full">
-      {/* Quote Icon */}
-      <div className="absolute top-4 left-4 text-gray-300">
-        <Quote size={32} />
-      </div>
+  // Make the testimonial cards responsive
+const TestimonialCard = ({ testimonial }) => (
+  <div className="w-full bg-white p-4 sm:p-6 shadow-lg rounded-xl relative border border-gray-200 h-full">
+    {/* Quote Icon */}
+    <div className="absolute top-2 sm:top-4 left-2 sm:left-4 text-gray-300">
+      <Quote size={24} className="sm:w-8 sm:h-8" />
+    </div>
 
-      {/* Testimonial Content - No scroll */}
-      <div className="text-gray-700 text-lg leading-relaxed mt-8">
-        <p>{testimonial.content}</p>
-      </div>
+    {/* Testimonial Content - No scroll */}
+    <div className="text-gray-700 text-base sm:text-lg leading-relaxed mt-6 sm:mt-8">
+      <p>{testimonial.content}</p>
+    </div>
 
-      {/* Testimonial Date */}
-      <div className="text-gray-500 text-sm mt-4">
-        <p>{testimonial.date}</p>
-      </div>
+    {/* Testimonial Date */}
+    <div className="text-gray-500 text-xs sm:text-sm mt-3 sm:mt-4">
+      <p>{testimonial.date}</p>
+    </div>
 
-      {/* Profile Section */}
-      <div className="flex items-center mt-6 border-t pt-4">
-        <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
-          <span className="text-gray-600 text-2xl">&#128100;</span>
-        </div>
-        <div className="ml-4">
-          <h4 className="text-gray-900 font-semibold">{testimonial.author}</h4>
-          <p className="text-gray-600 text-sm">{testimonial.position}</p>
-        </div>
+    {/* Profile Section */}
+    <div className="flex items-center mt-4 sm:mt-6 border-t pt-3 sm:pt-4">
+      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-300 rounded-full flex items-center justify-center">
+        <span className="text-gray-600 text-xl sm:text-2xl">&#128100;</span>
+      </div>
+      <div className="ml-3 sm:ml-4">
+        <h4 className="text-gray-900 font-semibold text-sm sm:text-base">{testimonial.author}</h4>
+        <p className="text-gray-600 text-xs sm:text-sm">{testimonial.position}</p>
       </div>
     </div>
-  );
+  </div>
+);
 
-  // Animation classes for slider
-  const slideAnimation = "transition-all duration-500 ease-in-out";
+// Responsive container and headings
+return (
+  <div className="bg-blue-100 min-h-screen py-4 sm:py-8 px-2 sm:px-4">
+    <div className="max-w-6xl mx-auto">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-2">What our Clients say about our Company</h1>
 
-  return (
-    <div className="bg-gray-100 min-h-screen py-8 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold text-center mb-2">What our Clients say about our Company</h1>
+      {/* International Testimonials */}
+      <div className="mb-8 sm:mb-12">
+        <p className="text-center text-blue-600 uppercase tracking-widest text-xl sm:text-2xl font-bold my-4 sm:my-8">Clients Testimonial - International</p>
 
-        {/* International Testimonials */}
-        <div className="mb-12">
-          <p className="text-center text-gray-600 uppercase tracking-wider text-sm mb-8">Clients Testimonial - International</p>
-
-          {/* Slider container with touch events */}
-          <div
-            className="relative overflow-hidden"
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={() => onTouchEnd('international')}
-          >
-            {/* Grid for testimonials with animation */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-1">
-              {intCurrentTestimonials.map((testimonial, index) => (
-                <div key={`int-${intCurrentPage}-${index}`} className={`${slideAnimation}`}>
-                  <TestimonialCard testimonial={testimonial} />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Dot navigation */}
-          <div className="flex justify-center mt-6 space-x-2">
-            {Array.from({ length: intTotalPages }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToPage(index, 'international')}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${intCurrentPage === index
-                    ? 'bg-blue-500 scale-110'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                aria-label={`Go to page ${index + 1}`}
-              ></button>
+        {/* Slider container with touch events */}
+        <div
+          className="relative overflow-hidden"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={() => onTouchEnd('international')}
+        >
+          {/* Responsive grid for testimonials with animation */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 px-1">
+            {intCurrentTestimonials.map((testimonial, index) => (
+              <div key={`int-${intCurrentPage}-${index}`} className={`${slideAnimation}`}>
+                <TestimonialCard testimonial={testimonial} />
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Dot separator */}
-        <div className="flex justify-center mb-8">
-          <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+        {/* Navigation buttons for small screens */}
+        <div className="flex justify-between mt-4 md:hidden">
+          {/* <button 
+            onClick={() => prevPage('international')}
+            className="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-600 transition-colors"
+            aria-label="Previous page"
+          >
+            <span className="sr-only">Previous</span>
+            &#10094;
+          </button> */}
+          {/* <button 
+            onClick={() => nextPage('international')}
+            className="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-600 transition-colors"
+            aria-label="Next page"
+          >
+            <span className="sr-only">Next</span>
+            &#10095;
+          </button> */}
         </div>
 
-        {/* Domestic Testimonials */}
-        <div>
-          <p className="text-center text-gray-600 uppercase tracking-wider text-sm mb-8">Clients Testimonial - Domestic</p>
+        {/* Dot navigation */}
+        <div className="flex justify-center mt-4 sm:mt-6 space-x-2">
+          {Array.from({ length: intTotalPages }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToPage(index, 'international')}
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                intCurrentPage === index
+                  ? 'bg-blue-500 scale-110'
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+              aria-label={`Go to page ${index + 1}`}
+            ></button>
+          ))}
+        </div>
+      </div>
 
-          {/* Slider container with touch events */}
-          <div
-            className="relative overflow-hidden"
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={() => onTouchEnd('domestic')}
-          >
-            {/* Grid for testimonials with animation */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-1">
-              {domCurrentTestimonials.map((testimonial, index) => (
-                <div key={`dom-${domCurrentPage}-${index}`} className={`${slideAnimation}`}>
-                  <TestimonialCard testimonial={testimonial} />
-                </div>
-              ))}
-            </div>
-          </div>
+      {/* Dot separator */}
+      <div className="flex justify-center mb-6 sm:mb-8">
+        <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+      </div>
 
-          {/* Dot navigation */}
-          <div className="flex justify-center mt-6 space-x-2">
-            {Array.from({ length: domTotalPages }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToPage(index, 'domestic')}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${domCurrentPage === index
-                    ? 'bg-blue-500 scale-110'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                aria-label={`Go to page ${index + 1}`}
-              ></button>
+      {/* Domestic Testimonials - Similar responsive changes */}
+      <div>
+        <p className="text-center text-blue-600 uppercase tracking-widest text-xl sm:text-2xl font-bold my-4 sm:my-8">Clients Testimonial - Domestic</p>
+
+        {/* Slider container with touch events */}
+        <div
+          className="relative overflow-hidden"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={() => onTouchEnd('domestic')}
+        >
+          {/* Responsive grid for testimonials with animation */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 px-1">
+            {domCurrentTestimonials.map((testimonial, index) => (
+              <div key={`dom-${domCurrentPage}-${index}`} className={`${slideAnimation}`}>
+                <TestimonialCard testimonial={testimonial} />
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Dot separator */}
-        <div className="flex justify-center mt-8">
-          <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+        {/* Navigation buttons for small screens */}
+        <div className="flex justify-between mt-4 md:hidden">
+          {/* <button 
+            onClick={() => prevPage('domestic')}
+            className="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-600 transition-colors"
+            aria-label="Previous page"
+          >
+            <span className="sr-only">Previous</span>
+            &#10094;
+          </button> */}
+          {/* <button 
+            onClick={() => nextPage('domestic')}
+            className="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-600 transition-colors"
+            aria-label="Next page"
+          >
+            <span className="sr-only">Next</span>
+            &#10095;
+          </button> */}
+        </div>
+
+        {/* Dot navigation */}
+        <div className="flex justify-center mt-4 sm:mt-6 space-x-2">
+          {Array.from({ length: domTotalPages }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToPage(index, 'domestic')}
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                domCurrentPage === index
+                  ? 'bg-blue-500 scale-110'
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+              aria-label={`Go to page ${index + 1}`}
+            ></button>
+          ))}
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default TestimonialSection;

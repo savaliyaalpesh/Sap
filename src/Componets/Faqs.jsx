@@ -7,7 +7,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
         className="flex items-center cursor-pointer" 
         onClick={onToggle}
       >
-        <span className={`mr-2 ${isOpen ? 'text-blue-600' : 'text-gray-900'}`}>
+        <span className={`mr-2 ${isOpen ? 'text-blue-600 text-xl' : 'text-gray-900'}`}>
           {isOpen ? 
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="m18 15-6-6-6 6"/></svg> : 
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="m6 9 6 6 6-6"/></svg>
@@ -47,7 +47,7 @@ const Faqs = () => {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto min-w-full ">
+    <div className="p-6 max-w-4xl mx-auto min-w-full font-semibold">
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">FAQs</h1>
       <div className="bg-blue-50 rounded-lg p-6 w-full">
         {faqs.map((faq, index) => (

@@ -1,3 +1,15 @@
+import React from 'react';
+
+import BTP from "../../Assets/BTP-Technology.jpg" 
+import env1 from "../../Assets/enviroment1.jpg"
+import env2 from "../../Assets/enviroment2.jpg"
+import env3 from "../../Assets/enviroment3.jpg"
+import drive from "../../Assets/deep-drive.jpg"
+import glonal from "../../Assets/glonal.jpg"
+
+import interview from "../../Assets/Interview.png"
+import technoligies from "../../Assets/Technologies.png"
+
 const SapBtpPage = () => {
   return (
     <div>
@@ -83,7 +95,7 @@ const SapBtpPage = () => {
 
         <div className="mt-8 border border-gray-300 rounded-md p-2">
           <img
-            src="/placeholder.svg?height=600&width=300"
+            src={glonal}
             alt="SAP BTP Architecture Diagram"
             className="w-full h-auto"
           />
@@ -165,69 +177,15 @@ const SapBtpPage = () => {
       {/* Platform Deep Dive Section */}
       <h2 className="text-2xl font-bold text-center mb-6">SAP Business Technology Platform Deep Dive</h2>
       <div className="flex justify-center mb-12">
-        <img src="/placeholder.svg?height=250&width=700" alt="SAP BTP Platform Architecture" className="w-4/5 h-auto" />
+        <img src={drive} alt="SAP BTP Platform Architecture" className="w-4/5 h-auto" />
       </div>
 
       {/* Environments Section */}
       <h2 className="text-2xl font-bold text-center mb-6">Environments for Your Applications</h2>
       <div className="grid grid-cols-3 gap-4">
-        {[
-          {
-            title: 'Cloud Foundry',
-            description: [
-              'Cloud native',
-              'Development, deployment',
-              'Integration',
-              'Multi-cloud',
-              'Language support',
-              'Custom apps/microservices',
-              'Platform-managed, rich ecosystem, multi-language, ready to deploy, lifecycle control, DevOps support, resilient architecture, scalable, integrations and services',
-            ],
-          },
-          {
-            title: 'Kyma',
-            description: [
-              'Containerized',
-              'Development, deployment',
-              'Kubernetes',
-              'Fully managed access',
-              'Open source project',
-              'Cloud-native development of apps and functions',
-              'Highly extensible microservice architecture',
-              'Kyma is stable, responsive, event-driven',
-            ],
-          },
-          {
-            title: 'ABAP Environment',
-            description: [
-              'ABAP runtime',
-              'Development, deployment',
-              'Core business logic',
-              'ABAP environment',
-              'Integrated',
-              'Tested',
-              'SAP project',
-              'ABAP RESTful programming model',
-              'Integration with cloud services for hybrid applications',
-              'Enables ABAP developers to migrate to cloud',
-              'Fully configurable applications',
-            ],
-          },
-        ].map((env) => (
-          <div key={env.title} className="border border-gray-300">
-            <div className="bg-blue-600 text-white p-3 text-lg font-medium text-center">{env.title}</div>
-            <div className="p-4 flex flex-col items-center">
-              <div className="mb-4">
-                <img src="/placeholder.svg?height=60&width=60" alt={`${env.title} Icon`} className="w-12 h-12" />
-              </div>
-              <ul className="text-sm w-full space-y-2">
-                {env.description.map((desc, index) => (
-                  <li key={index}>• {desc}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
+        <img src={env1} alt="" />
+        <img src={env2} alt="" />
+        <img src={env3} alt="" />
       </div>
     </div>
 
@@ -334,21 +292,7 @@ const SapBtpPage = () => {
 
               {/* Technology blocks */}
               <div className="absolute top-6 left-12 flex space-x-2">
-                <div className="w-12 h-12 bg-blue-200 border border-blue-400 transform rotate-y-20 shadow-md flex items-center justify-center text-xs text-center">
-                  <span>Application Dev</span>
-                </div>
-                <div className="w-12 h-12 bg-blue-200 border border-blue-400 transform rotate-y-20 shadow-md flex items-center justify-center text-xs text-center">
-                  <span>Automation</span>
-                </div>
-                <div className="w-12 h-12 bg-blue-200 border border-blue-400 transform rotate-y-20 shadow-md flex items-center justify-center text-xs text-center">
-                  <span>Integration</span>
-                </div>
-                <div className="w-12 h-12 bg-blue-200 border border-blue-400 transform rotate-y-20 shadow-md flex items-center justify-center text-xs text-center">
-                  <span>Data & Analytics</span>
-                </div>
-                <div className="w-12 h-12 bg-blue-200 border border-blue-400 transform rotate-y-20 shadow-md flex items-center justify-center text-xs text-center">
-                  <span>Artificial Intelligence</span>
-                </div>
+                <img src={BTP} alt="" />
               </div>
             </div>
           </div>
@@ -537,7 +481,7 @@ const SapBtpPage = () => {
             {/* Image Column */}
             <div className="flex items-center justify-center h-full">
               <img
-                src="/placeholder.svg?height=250&width=350"
+                src={interview}
                 alt="Two business people shaking hands"
                 className="w-full max-w-md"
               />
@@ -620,7 +564,7 @@ const SapBtpPage = () => {
             {/* Image */}
             <div className="flex items-center justify-center">
               <img
-                src="/placeholder.svg?height=250&width=350"
+                src={technoligies}
                 alt="SAP BTP Services Illustration"
                 className="w-full max-w-md"
               />
@@ -718,4 +662,3 @@ const SapBtpPage = () => {
 }
 
 export default SapBtpPage
-

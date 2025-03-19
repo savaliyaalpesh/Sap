@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import logo from "../Assets/header-logo.png"
@@ -8,6 +6,7 @@ const SAPLandingPage = () => {
   const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
+  const [activeSubmenu, setActiveSubmenu] = useState(null)
 
   const toggleDropdown = (dropdownName) => {
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName)
@@ -40,8 +39,24 @@ const SAPLandingPage = () => {
       id: "services",
       links: [
         { to: "/consulting-services", label: "SAP Consulting Services" },
-        { to: "/technical", label: "SAP Technical" },
-        { to: "/migration", label: "SAP Migration" },
+        {
+          to: "/technical", label: "SAP Technical",
+          subLinks: [
+            { to: "/sap-abap-development-consultant", label: "SAP Abap Development" },
+            { to: "/sap-basis-consultantation-service", label: "SAP BASIS" },
+            { to: "/sap-bi-bo-consultantation-service", label: "SAP BI/BO" },
+            { to: "/sap-cpi-pi-po-consultant", label: "SAP PI/PO/CP" },
+            { to: "/sap-data-services-designer", label: "SAP Data Services Designer" },
+          ]
+        },
+        {
+          to: "/migration", label: "SAP Migration",
+          subLinks: [
+            { to: "/ecc-to-s4-hana-data-migration", label: "Ecc to s4 Hana Migration" },
+            { to: "/sap-on-premise-to-cloud-migration", label: "ON-PREMISE TO CLOUD SERVICES" },
+            { to: "/os-db-migration-sap", label: "OS DB Migration In SAP" },
+          ]
+        },
         { to: "/ams-support", label: "SAP AMS Support Service" },
         { to: "/sap-btp", label: "SAP BTP" },
       ],
@@ -49,7 +64,7 @@ const SAPLandingPage = () => {
   ]
 
   const directLinks = [
-    { to: "/knowledge-center", label: "Knowledge Center" },
+    { label: "Knowledge Center" },
     { to: "/career", label: "Career" },
     { to: "/contact", label: "Contact Us" },
     { to: "/blogs", label: "Blogs" },
@@ -68,16 +83,29 @@ const SAPLandingPage = () => {
     </svg>
   )
 
+  // Reusable right arrow component for submenus
+  const RightArrow = () => (
+    <svg
+      className="w-4 h-4 ml-1"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+    </svg>
+  )
+
   return (
     <div className="bg-slate-50 w-full">
       <header className="py-4 w-full">
         <div className="container mx-auto px-4 flex items-center justify-between w-full">
           {/* Logo - Ensure visibility on all screen sizes */}
           <Link to="/" className="flex items-center flex-shrink-0">
-            <img 
-              src={logo || "/placeholder.svg"} 
-              alt="VSD SAP Gold Partner" 
-              className="h-10 w-auto" 
+            <img
+              src={logo || "/placeholder.svg"}
+              alt="VSD SAP Gold Partner"
+              className="h-10 w-auto"
             />
           </Link>
 
@@ -86,23 +114,49 @@ const SAPLandingPage = () => {
             {/* Dropdown Menus */}
             {navigationItems.map((item) => (
               <div key={item.id} className="relative group">
-                <button className="text-gray-700 hover:text-blue-500 font-medium flex items-center py-2">
+                <button className="text-gray-700 hover:text-blue-500 font-medium flex items-center py-2 group">
                   {item.name}
                   <DropdownArrow isOpen={false} />
                 </button>
 
-                <div className="absolute left-0 top-full z-20 w-64">
-                  <div className="bg-white shadow-lg rounded-md overflow-hidden mt-2">
+                <div className="absolute left-0 top-full z-20 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                  <div className="bg-white shadow-lg rounded-md mt-2">
                     {item.links.map((link) => (
-                      <Link
-                        key={link.to}
-                        to={link.to}
-                        className={`block py-2 px-4 font-medium hover:bg-blue-500 hover:text-white ${
-                          location.pathname === link.to ? "bg-blue-500 text-white" : "text-purple-600"
-                        }`}
-                      >
-                        {link.label}
-                      </Link>
+                      <div key={link.to} className="relative group/submenu">
+                        <Link
+                          to={link.to}
+                          className={`block py-2 px-4 font-medium hover:bg-blue-500 hover:text-white ${location.pathname === link.to ? "bg-blue-500 text-white" :
+                              (link.subLinks && activeSubmenu === link.label) ? "bg-blue-500 text-white" : "text-purple-600"
+                            } ${link.subLinks ? "flex items-center justify-between" : ""}`}
+                          onMouseEnter={() => link.subLinks && setActiveSubmenu(link.label)}
+                          onMouseLeave={() => link.subLinks && setActiveSubmenu(null)}
+                        >
+                          {link.label}
+                          {link.subLinks && <RightArrow />}
+                        </Link>
+
+                        {/* Render sub-links if they exist - positioned to the right */}
+                        {link.subLinks && (
+                          <div
+                            className="absolute left-full top-0 z-30 w-64 opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-300"
+                            onMouseEnter={() => setActiveSubmenu(link.label)}
+                            onMouseLeave={() => setActiveSubmenu(null)}
+                          >
+                            <div className="bg-white shadow-lg rounded-md overflow-hidden ml-2">
+                              {link.subLinks.map((subLink) => (
+                                <Link
+                                  key={subLink.to}
+                                  to={subLink.to}
+                                  className={`block py-2 px-4 font-medium hover:bg-blue-500 hover:text-white ${location.pathname === subLink.to ? "bg-blue-500 text-white" : "text-purple-600"
+                                    }`}
+                                >
+                                  {subLink.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -114,9 +168,8 @@ const SAPLandingPage = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`text-gray-700 hover:text-blue-500 font-medium ${
-                  location.pathname === link.to ? "text-blue-500" : ""
-                }`}
+                className={`text-gray-700 hover:text-blue-500 font-medium ${location.pathname === link.to ? "text-blue-500" : ""
+                  }`}
               >
                 {link.label}
               </Link>
@@ -163,16 +216,15 @@ const SAPLandingPage = () => {
 
           {/* Mobile/Tablet Full Width Menu */}
           <div
-            className={`fixed inset-0 bg-blue-500 z-30 transition-transform duration-300 transform ${
-              menuOpen ? "translate-x-0" : "translate-x-full"
-            } block xl:hidden`}
+            className={`fixed inset-0 bg-blue-500 z-30 transition-transform duration-300 transform ${menuOpen ? "translate-x-0" : "translate-x-full"
+              } block xl:hidden`}
           >
             <div className="container mx-auto px-4 py-6">
               <div className="flex items-center justify-between mb-8">
-                <img 
-                  src={logo || "/placeholder.svg"} 
-                  alt="VSD SAP Gold Partner" 
-                  className="h-10 brightness-0 invert w-auto" 
+                <img
+                  src={logo || "/placeholder.svg"}
+                  alt="VSD SAP Gold Partner"
+                  className="h-10 brightness-0 invert w-auto"
                 />
                 <button onClick={() => setMenuOpen(false)} className="text-white" aria-label="Close menu">
                   <svg
@@ -202,14 +254,45 @@ const SAPLandingPage = () => {
                     {activeDropdown === item.id && (
                       <div className="pl-4 mt-2 space-y-2">
                         {item.links.map((link) => (
-                          <Link
-                            key={link.to}
-                            to={link.to}
-                            className="block py-2 font-medium text-white hover:text-blue-200"
-                            onClick={() => setMenuOpen(false)}
-                          >
-                            {link.label}
-                          </Link>
+                          <div key={link.to}>
+                            {!link.subLinks ? (
+                              <Link
+                                to={link.to}
+                                className="block py-2 font-medium text-white hover:text-blue-200"
+                                onClick={() => setMenuOpen(false)}
+                              >
+                                {link.label}
+                              </Link>
+                            ) : (
+                              <>
+                                <button
+                                  className={`w-full text-left font-medium flex items-center justify-between py-2 ${activeDropdown === `${item.id}-${link.label}` ? "bg-blue-600 text-white px-2 rounded" : "text-white"
+                                    }`}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    toggleDropdown(`${item.id}-${link.label}`);
+                                  }}
+                                >
+                                  {link.label}
+                                  <DropdownArrow isOpen={activeDropdown === `${item.id}-${link.label}`} />
+                                </button>
+                                {activeDropdown === `${item.id}-${link.label}` && (
+                                  <div className="pl-4 mt-2 space-y-2">
+                                    {link.subLinks.map((subLink) => (
+                                      <Link
+                                        key={subLink.to}
+                                        to={subLink.to}
+                                        className="block py-2 font-medium text-white hover:text-blue-200"
+                                        onClick={() => setMenuOpen(false)}
+                                      >
+                                        {subLink.label}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                )}
+                              </>
+                            )}
+                          </div>
                         ))}
                       </div>
                     )}
@@ -243,7 +326,7 @@ const SAPLandingPage = () => {
           </div>
         </div>
       </header>
-     
+
     </div>
   )
 }

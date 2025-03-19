@@ -52,7 +52,7 @@ const Industries = () => {
           <div className="w-full md:w-1/2 flex flex-col gap-4">
             <h2 className="text-3xl md:text-4xl font-bold leading-tight">Get ahead with SAP</h2>
             <h3 className="text-lg md:text-xl font-medium mt-2">The Plan for How You Will Become More Digital</h3>
-            <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+            <p className="text-gray-700 font-medium text-sm md:text-base leading-relaxed">
               At VSD Technologies, our SAP Automation services carefully plan how you will become digital. First, look at how things are done now, and then use custom software solutions to make things faster and more accurate. Our tools work well with current systems and cause as little trouble as possible. As you automate more areas, VSD Technologies ensures that things keep improving. This creates a dynamic, flexible digital environment that speeds up growth and encourages new ideas.
             </p>
           </div>
