@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import SucessFactor from "../../Assets/Success-Factor.png";
 import Sucess from "../../Assets/Success.png";
-
 import vinyl from "../../Icons/vinyl.svg"
 import usertie from "../../Icons/user-tie.svg"
 import book from "../../Icons/book.svg"
 import cogs from "../../Icons/cogs.svg"
 import keyboard from "../../Icons/keyboard.svg"
 import dollar from "../../Icons/dollar.svg"
+import Form from "../Form"
 
 const successfactors = () => {
 
@@ -303,11 +303,11 @@ const successfactors = () => {
 
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-gray-900">SAP SuccessFactors Solution</h3>
-              <p className="text-gray-700 max-w-3xl mx-auto mt-2">
+              <p className="text-gray-700 max-wfull mx-auto mt-2">
                 Select us for timely SAP SuccessFactors integration solutions and unparalleled HR efficiency. Our experts seamlessly integrate SuccessFactors modules with your SAP landscape, streamlining HR operations and improving workforce management. Due to our track record of meeting project deadlines, we prioritize your timelines and business goals to minimize disruption.
               </p>
 
-              <p className="text-gray-700 max-w-3xl mx-auto mt-2">
+              <p className="text-gray-700 max-w-full mx-auto mt-3">
                 To simplify HR processes, choose our SAP SuccessFactors integration team. Our experts have years of experience and in-depth knowledge to ensure a smooth integration for your business. Working with your team to understand needs and deliver innovative solutions, we at VSD Technologies value collaboration, transparency, and efficiency. Let us be your digital HR transformation partner.
               </p>
             </div>
@@ -316,6 +316,15 @@ const successfactors = () => {
         </div>
       </div>
       <Faqs />
+
+      {/* Form Title */}
+      <div className="text-center  md:mb-8">
+        <p className="text-blue-400 text-xl sm:text-2xl md:text-3xl mb-2 tracking-widest">Let's Talk!!</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
+          How can your business get benefitted from SAP SuccessFactors Solution?
+        </h1>
+      </div>
+      <Form />
     </>
   );
 };

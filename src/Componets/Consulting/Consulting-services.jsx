@@ -9,6 +9,7 @@ import tv from "../../Icons/tv.svg"
 import americansign from "../../Icons/american-sign.svg"
 import star from "../../Icons/star.svg"
 import usercogs from "../../Icons/users-cog.svg"
+import Form from "../Form"
 
 const Consulting = () => {
 
@@ -141,7 +142,7 @@ const Consulting = () => {
         </div>
 
         {/* Main content section */}
-        <div className="container mx-auto py-16 px-4 md:px-6">
+        <div className="container mx-auto pt-16 px-4 md:px-6">
 
 
           {/* Original content from the first component */}
@@ -308,7 +309,7 @@ const Consulting = () => {
                 <h2 className="text-4xl font-bold text-gray-900">Unlock Full Potential of Your Business with Enterprise & Solution Architecture</h2>
 
                 <p className="text-gray-700 mt-4">
-                Due to the expanding and complex IT ecosystem, businesses need a wide range of interfaces and the synchronization of releases, data, and support. We work with you to develop an agile enterprise architecture that makes the best use of resources, avoids bottlenecks, allows for more flexibility, and is scalable in order to connect your overall IT strategy with your business goals.
+                  Due to the expanding and complex IT ecosystem, businesses need a wide range of interfaces and the synchronization of releases, data, and support. We work with you to develop an agile enterprise architecture that makes the best use of resources, avoids bottlenecks, allows for more flexibility, and is scalable in order to connect your overall IT strategy with your business goals.
                 </p>
 
                 <p className="text-gray-700 mt-4">
@@ -416,6 +417,17 @@ const Consulting = () => {
         </div>
       </div>
       <Faqs />
+
+      {/* Form Title */}
+      <div className="text-center  md:mb-8">
+        <p className="text-blue-400 text-xl sm:text-2xl md:text-3xl mb-2 tracking-widest">Let's Talk!!</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
+          How Your Business can get benefitted from SAP Implementation?
+        </h1>
+      </div>
+
+      <Form />
+
     </>
   );
 };

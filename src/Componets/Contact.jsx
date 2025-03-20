@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Form from "./Form"
 const ContactPage = () => {
   // The actual coordinates from the provided Google Maps link
   // const latitude = 23.049736;
@@ -8,7 +8,7 @@ const ContactPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header Banner */}
-      <div className="relative h-48 bg-custom flex items-center justify-center">        
+      <div className="relative h-48 bg-custom flex items-center justify-center">
         <h1 className="text-5xl font-bold text-white z-10">Contact</h1>
       </div>
 
@@ -127,6 +127,14 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
+      {/* Form Title */}
+      <div className="text-center  md:mb-8">
+        <p className="text-blue-400 text-xl sm:text-2xl md:text-3xl mb-2 tracking-widest">Get in touch with</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
+          India’s Leading SAP Digital Transformation and Consulting Partner
+        </h1>
+      </div>
+      <Form />
     </div>
   );
 };

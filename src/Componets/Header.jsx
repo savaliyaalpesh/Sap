@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
 import logo from "../Assets/header-logo.png"
 
@@ -7,9 +7,14 @@ const SAPLandingPage = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [activeSubmenu, setActiveSubmenu] = useState(null)
+  const [activeMobileSubmenu, setActiveMobileSubmenu] = useState(null)
 
   const toggleDropdown = (dropdownName) => {
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName)
+  }
+
+  const toggleMobileSubmenu = (submenuName) => {
+    setActiveMobileSubmenu(activeMobileSubmenu === submenuName ? null : submenuName)
   }
 
   // Navigation data structure to avoid repetition
@@ -40,22 +45,22 @@ const SAPLandingPage = () => {
       links: [
         { to: "/consulting-services", label: "SAP Consulting Services" },
         {
-          to: "/technical", label: "SAP Technical",
+          label: "SAP Technical",
           subLinks: [
             { to: "/sap-abap-development-consultant", label: "SAP Abap Development" },
             { to: "/sap-basis-consultantation-service", label: "SAP BASIS" },
             { to: "/sap-bi-bo-consultantation-service", label: "SAP BI/BO" },
             { to: "/sap-cpi-pi-po-consultant", label: "SAP PI/PO/CP" },
             { to: "/sap-data-services-designer", label: "SAP Data Services Designer" },
-          ]
+          ],
         },
         {
-          to: "/migration", label: "SAP Migration",
+          label: "SAP Migration",
           subLinks: [
             { to: "/ecc-to-s4-hana-data-migration", label: "Ecc to s4 Hana Migration" },
             { to: "/sap-on-premise-to-cloud-migration", label: "ON-PREMISE TO CLOUD SERVICES" },
             { to: "/os-db-migration-sap", label: "OS DB Migration In SAP" },
-          ]
+          ],
         },
         { to: "/ams-support", label: "SAP AMS Support Service" },
         { to: "/sap-btp", label: "SAP BTP" },
@@ -69,6 +74,28 @@ const SAPLandingPage = () => {
     { to: "/contact", label: "Contact Us" },
     { to: "/blogs", label: "Blogs" },
   ]
+
+  // Function to check if any submenu item of a parent is active
+  const isAnySubmenuActive = (link) => {
+    if (!link.subLinks) return false;
+    
+    return link.subLinks.some(subLink => location.pathname === subLink.to);
+  }
+
+  // Set parent menu highlight when submenu is active
+  useEffect(() => {
+    const servicesLinks = navigationItems.find(item => item.id === "services")?.links;
+    if (servicesLinks) {
+      const technicalLink = servicesLinks.find(link => link.label === "SAP Technical");
+      const migrationLink = servicesLinks.find(link => link.label === "SAP Migration");
+      
+      if ((technicalLink && isAnySubmenuActive(technicalLink)) || 
+          (migrationLink && isAnySubmenuActive(migrationLink))) {
+        setActiveDropdown("services");
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
 
   // Reusable dropdown arrow component
   const DropdownArrow = ({ isOpen }) => (
@@ -102,11 +129,7 @@ const SAPLandingPage = () => {
         <div className="container mx-auto px-4 flex items-center justify-between w-full">
           {/* Logo - Ensure visibility on all screen sizes */}
           <Link to="/" className="flex items-center flex-shrink-0">
-            <img
-              src={logo || "/placeholder.svg"}
-              alt="VSD SAP Gold Partner"
-              className="h-10 w-auto"
-            />
+            <img src={logo || "/placeholder.svg"} alt="VSD SAP Gold Partner" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -125,9 +148,13 @@ const SAPLandingPage = () => {
                       <div key={link.to} className="relative group/submenu">
                         <Link
                           to={link.to}
-                          className={`block py-2 px-4 font-medium hover:bg-blue-500 hover:text-white ${location.pathname === link.to ? "bg-blue-500 text-white" :
-                              (link.subLinks && activeSubmenu === link.label) ? "bg-blue-500 text-white" : "text-purple-600"
-                            } ${link.subLinks ? "flex items-center justify-between" : ""}`}
+                          className={`block py-2 px-4 font-medium hover:bg-blue-500 hover:text-white ${
+                            location.pathname === link.to || isAnySubmenuActive(link)
+                              ? "bg-blue-500 text-white"
+                              : (link.subLinks && activeSubmenu === link.label)
+                                ? "bg-blue-500 text-white"
+                                : "text-purple-600"
+                          } ${link.subLinks ? "flex items-center justify-between" : ""}`}
                           onMouseEnter={() => link.subLinks && setActiveSubmenu(link.label)}
                           onMouseLeave={() => link.subLinks && setActiveSubmenu(null)}
                         >
@@ -147,8 +174,9 @@ const SAPLandingPage = () => {
                                 <Link
                                   key={subLink.to}
                                   to={subLink.to}
-                                  className={`block py-2 px-4 font-medium hover:bg-blue-500 hover:text-white ${location.pathname === subLink.to ? "bg-blue-500 text-white" : "text-purple-600"
-                                    }`}
+                                  className={`block py-2 px-4 font-medium hover:bg-blue-500 hover:text-white ${
+                                    location.pathname === subLink.to ? "bg-blue-500 text-white" : "text-purple-600"
+                                  }`}
                                 >
                                   {subLink.label}
                                 </Link>
@@ -168,18 +196,19 @@ const SAPLandingPage = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`text-gray-700 hover:text-blue-500 font-medium ${location.pathname === link.to ? "text-blue-500" : ""
-                  }`}
+                className={`text-gray-700 hover:text-blue-500 font-medium ${
+                  location.pathname === link.to ? "text-blue-500" : ""
+                }`}
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* Request Demo Button (Desktop and Large Tablet) */}
+          {/* Request Demo Button (Changed to only display on xl screens, not on lg) */}
           <Link
-            to="/request-demo"
-            className="hidden lg:inline-block xl:inline-block bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-medium py-2 px-6 border border-transparent hover:border-blue-600 rounded-full transition duration-300"
+            to="/"
+            className="hidden xl:inline-block bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-medium py-2 px-6 border border-transparent hover:border-blue-600 rounded-full transition duration-300"
           >
             Request a Demo
           </Link>
@@ -216,8 +245,9 @@ const SAPLandingPage = () => {
 
           {/* Mobile/Tablet Full Width Menu */}
           <div
-            className={`fixed inset-0 bg-blue-500 z-30 transition-transform duration-300 transform ${menuOpen ? "translate-x-0" : "translate-x-full"
-              } block xl:hidden`}
+            className={`fixed inset-0 bg-blue-500 z-30 transition-transform duration-300 transform ${
+              menuOpen ? "translate-x-0" : "translate-x-full"
+            } block xl:hidden overflow-y-auto`}
           >
             <div className="container mx-auto px-4 py-6">
               <div className="flex items-center justify-between mb-8">
@@ -264,25 +294,25 @@ const SAPLandingPage = () => {
                                 {link.label}
                               </Link>
                             ) : (
-                              <>
+                              <div className="mb-2">
                                 <button
-                                  className={`w-full text-left font-medium flex items-center justify-between py-2 ${activeDropdown === `${item.id}-${link.label}` ? "bg-blue-600 text-white px-2 rounded" : "text-white"
-                                    }`}
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    toggleDropdown(`${item.id}-${link.label}`);
-                                  }}
+                                  className={`w-full text-left font-medium flex items-center justify-between py-2 text-white ${
+                                    isAnySubmenuActive(link) ? "bg-blue-600 px-2 rounded" : ""
+                                  }`}
+                                  onClick={() => toggleMobileSubmenu(link.label)}
                                 >
                                   {link.label}
-                                  <DropdownArrow isOpen={activeDropdown === `${item.id}-${link.label}`} />
+                                  <DropdownArrow isOpen={activeMobileSubmenu === link.label} />
                                 </button>
-                                {activeDropdown === `${item.id}-${link.label}` && (
-                                  <div className="pl-4 mt-2 space-y-2">
+                                {activeMobileSubmenu === link.label && (
+                                  <div className="pl-4 mt-2 space-y-2 bg-blue-600 rounded-md p-2">
                                     {link.subLinks.map((subLink) => (
                                       <Link
                                         key={subLink.to}
                                         to={subLink.to}
-                                        className="block py-2 font-medium text-white hover:text-blue-200"
+                                        className={`block py-2 font-medium text-white hover:text-blue-200 ${
+                                          location.pathname === subLink.to ? "bg-blue-700 px-2 rounded" : ""
+                                        }`}
                                         onClick={() => setMenuOpen(false)}
                                       >
                                         {subLink.label}
@@ -290,7 +320,7 @@ const SAPLandingPage = () => {
                                     ))}
                                   </div>
                                 )}
-                              </>
+                              </div>
                             )}
                           </div>
                         ))}
@@ -315,7 +345,7 @@ const SAPLandingPage = () => {
               {/* Demo Button in Mobile Menu */}
               <div className="mt-8 text-center">
                 <Link
-                  to="/request-demo"
+                  to="/"
                   className="bg-white text-blue-500 font-medium py-3 px-8 border border-white rounded-full transition duration-300 inline-block"
                   onClick={() => setMenuOpen(false)}
                 >
@@ -326,7 +356,6 @@ const SAPLandingPage = () => {
           </div>
         </div>
       </header>
-
     </div>
   )
 }

@@ -5,7 +5,7 @@ import cloudsun from "../../Icons/cloudsun.svg"
 import resolving from "../../Icons/resolving.svg"
 import mountain from "../../Icons/mountain.svg"
 import filealt from "../../Icons/file-alt.svg"
-
+import Form from "../Form"
 
 const Exim = () => {
 
@@ -306,11 +306,19 @@ const Exim = () => {
               EXIM for Export-Import opens global trade. Our comprehensive solution helps businesses navigate international commerce seamlessly. EXIM streamlines export-import processes from documentation and compliance to supply chain logistics. With actual-time monitoring and analytics, groups could make smart selections and capture new market opportunities. EXIM assists small and massive groups in worldwide enlargement, chance mitigation, and sustainable growth. Join the many businesses worldwide that use EXIM for Export-Import to streamline, reduce costs, and increase profits. Experience EXIM’s efficiency, reliability, and innovation today to grow your export-import business.
             </p>
           </div>
-
-
         </div>
       </div>
       <Faqs />
+
+      {/* Form Title */}
+      <div className="text-center  md:mb-8">
+        <p className="text-blue-400 text-xl sm:text-2xl md:text-3xl mb-2 tracking-widest">Let's Talk!!</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
+          How can your business get benefitted from EXIM Solution?
+        </h1>
+      </div>
+      
+      <Form />
     </>
   );
 };

@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import Consulting from "../../Assets/Consulting.png";
 import Service from "../../Assets/Consulting_service.png";
-
 import business from "../../Icons/business-time.svg"
 import dna from "../../Icons/dna.svg"
 import appstore from "../../Icons/App-store.svg"
-
-
-
+import Form from "../Form"
 
 const Consultant = () => {
 
@@ -206,7 +203,7 @@ const Consultant = () => {
                 </div>
                 <h4 className="text-xl font-semibold text-blue-500 mb-2">Crush Your Business Goals with SAP FIORI</h4>
                 <p className="text-gray-700 text-left my-3">
-                Choose us for SAP FIORI implementation and development because we put customers first. Our dedicated team understands the importance of tailoring SAP FIORI solutions to your business needs and user preferences. Our customer-centric approach ensures seamless integration, intuitive design, and maximum user satisfaction in every implementation step. We deliver solutions that improve user experience, productivity, and business success from consultation to support. 
+                  Choose us for SAP FIORI implementation and development because we put customers first. Our dedicated team understands the importance of tailoring SAP FIORI solutions to your business needs and user preferences. Our customer-centric approach ensures seamless integration, intuitive design, and maximum user satisfaction in every implementation step. We deliver solutions that improve user experience, productivity, and business success from consultation to support.
                 </p>
 
               </div>
@@ -222,7 +219,7 @@ const Consultant = () => {
                 </div>
                 <h4 className="text-xl font-semibold text-blue-500 mb-2">Make New Innovative Solutions</h4>
                 <p className="text-gray-700 text-left my-3">
-                Hire us for SAP FIORI implementation and development because of our experience and expertise. Our experienced consultants have completed many Fiori projects, providing our clients with intuitive user interfaces and streamlined processes. By understanding Fiori design principles and best practices, we ensure your apps are functional, beautiful, and user-friendly. 
+                  Hire us for SAP FIORI implementation and development because of our experience and expertise. Our experienced consultants have completed many Fiori projects, providing our clients with intuitive user interfaces and streamlined processes. By understanding Fiori design principles and best practices, we ensure your apps are functional, beautiful, and user-friendly.
                 </p>
               </div>
 
@@ -239,7 +236,7 @@ const Consultant = () => {
                 </div>
                 <h4 className="text-xl font-semibold text-blue-500 mb-2">Build Apps that are Better & Faster</h4>
                 <p className="text-gray-700 text-left my-3">
-                Trust VSD Technologies to deliver SAP FIORI implementation and development on time and within budget. Our skilled team uses the latest tools and technologies to streamline your processes and improve user experience to deliver high-quality solutions that meet your business needs. We’ll help you achieve your SAP FIORI goals on time and professionally.
+                  Trust VSD Technologies to deliver SAP FIORI implementation and development on time and within budget. Our skilled team uses the latest tools and technologies to streamline your processes and improve user experience to deliver high-quality solutions that meet your business needs. We’ll help you achieve your SAP FIORI goals on time and professionally.
                 </p>
               </div>
             </div>
@@ -252,7 +249,7 @@ const Consultant = () => {
 
             <div className="text-center mb-8">
               <p className="text-gray-700 max-w-7xl mx-auto mt-10 text-left">
-              Choose us for <b> SAP FIORI implementation</b> and development expertise and dedication. Our skilled team has years of experience creating customized Fiori solutions for your business. We collaborate with you from concept to deployment to understand your demands and create intuitive, person-friendly interfaces that enhance commercial enterprise procedures and user productivity.
+                Choose us for <b> SAP FIORI implementation</b> and development expertise and dedication. Our skilled team has years of experience creating customized Fiori solutions for your business. We collaborate with you from concept to deployment to understand your demands and create intuitive, person-friendly interfaces that enhance commercial enterprise procedures and user productivity.
               </p>
             </div>
 
@@ -260,6 +257,16 @@ const Consultant = () => {
         </div>
       </div>
       <Faqs />
+
+      {/* Form Title */}
+      <div className="text-center  md:mb-8">
+        <p className="text-blue-400 text-xl sm:text-2xl md:text-3xl mb-2 tracking-widest">Let's Talk!!</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
+          How can your business get benefitted from SAP FIORI Solution?
+        </h1>
+      </div>
+
+      <Form />
     </>
   );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import Consulting from '../../Assets/sap consulting services.png';
+import Form from "../Form"
 
 const Industries = () => {
   const domains = [
@@ -81,7 +82,7 @@ const Industries = () => {
                 {domain.icon}
               </div>
               <h3 className="text-lg md:text-xl font-semibold mb-2 tracking-wide text-blue-600">
-                {domain.title} 
+                {domain.title}
               </h3>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed text-left">
                 {domain.description}
@@ -90,6 +91,15 @@ const Industries = () => {
           ))}
         </div>
       </div>
+
+      {/* Form Title */}
+      <div className="text-center  md:mb-8">
+        <p className="text-blue-400 text-xl sm:text-2xl md:text-3xl mb-2 tracking-widest">Get in touch with</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
+          India's Leading SAP Digital Transformation and Consulting Partner
+        </h1>
+      </div>
+      <Form/>
     </div>
   );
 };

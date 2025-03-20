@@ -1,5 +1,6 @@
 import React from 'react';
 import CareerImg from "../Assets/career.png";
+import Form from "./Form"
 
 const Career = () => {
   // Job Card Component
@@ -35,7 +36,7 @@ const Career = () => {
       title: "SAP ABAP Consultant",
       location: "Ahmedabad, India",
       postedDate: "July 15, 2023",
-      validUntil: "August 15, 2023", 
+      validUntil: "August 15, 2023",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
     },
     {
@@ -195,6 +196,16 @@ const Career = () => {
           </div>
         </div>
       </div>
+
+      {/* Form Title */}
+      <div className="text-center  md:mb-8">
+        <p className="text-blue-400 text-xl sm:text-2xl md:text-3xl mb-2 tracking-widest">Submit a Resume</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
+          Your Ideas, Your Innovation & Your Execution Matter to Us. Bring them On
+        </h1>
+      </div>
+
+      <Form/>
     </div>
   );
 };

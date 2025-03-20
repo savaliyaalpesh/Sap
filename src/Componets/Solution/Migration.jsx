@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import migration from "../../Assets/migration.png";
 import solution from "../../Assets/solution.png";
-
 import userscog from "../../Icons/users-cog.svg"
 import users from "../../Icons/users.svg"
 import sun from "../../Icons/sun.svg"
 import moneycheck from "../../Icons/money-check.svg"
 import coin from "../../Icons/coins.svg"
 import peoplearrows from "../../Icons/people-arrows.svg"
-
-
+import Form from "../Form"
 
 const Migration = () => {
 
@@ -322,6 +320,16 @@ const Migration = () => {
         </div>
       </div>
       <Faqs />
+      
+      {/* Form Title */}
+      <div className="text-center  md:mb-8">
+        <p className="text-blue-400 text-xl sm:text-2xl md:text-3xl mb-2 tracking-widest">Let's Talk!!</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
+          How Your Business can get benefitted from Rise With SAP Solutions?
+        </h1>
+      </div>
+
+      <Form/>
     </>
   );
 };

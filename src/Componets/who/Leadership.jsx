@@ -5,6 +5,7 @@ import Vision from '../../Assets/Vision.png';
 import VirandraSharda from '../../Assets/Virandra Sharda.jpg';
 import NaineshPatadia from '../../Assets/Nainesh Patadia.jpg';
 import NareshPandya from '../../Assets/Naresh Pandya.jpg';
+import Form from "../Form"
 
 const Leadership = () => {
   const missionPoints = [
@@ -391,7 +392,14 @@ const Leadership = () => {
       </div>
       <Faqs />
 
-      
+      {/* Form Title */}
+      <div className="text-center  md:mb-8">
+        <p className="text-blue-400 text-xl sm:text-2xl md:text-3xl mb-2 tracking-widest">Get in touch with</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
+          India's Leading SAP Digital Transformation and Consulting Partner
+        </h1>
+      </div>
+      <Form />
     </>
   );
 };

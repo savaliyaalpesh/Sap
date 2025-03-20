@@ -8,6 +8,7 @@ import networkwired from "../../Icons/network-wired.svg"
 import userscog from "../../Icons/users-cog.svg"
 import cloud from "../../Icons/cloud.svg"
 import clouddownload from "../../Icons/cloud-download.svg"
+import Form from "../Form"
 
 const RiseWithSap = () => {
 
@@ -409,6 +410,15 @@ const RiseWithSap = () => {
         </div>
       </div>
       <Faqs />
+
+      {/* Form Title */}
+      <div className="text-center  md:mb-8">
+        <p className="text-blue-400 text-xl sm:text-2xl md:text-3xl mb-2 tracking-widest">Let's Talk!!</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
+          How Your Business can get benefitted from Rise With SAP Solutions?
+        </h1>
+      </div>
+      <Form />
     </>
   );
 };

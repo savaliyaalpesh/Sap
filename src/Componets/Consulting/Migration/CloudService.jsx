@@ -6,7 +6,7 @@ import Digital from "../../../Assets/SAP_Digital_Transformation.png"
 import searchengin from '../../../Icons/searchengin.svg'
 import filecode from '../../../Icons/file-code.svg'
 import chalkboard from '../../../Icons/chalkboard.svg'
-
+import Form from "../../Form"
 
 const CloudService = () => {
 
@@ -77,7 +77,7 @@ const CloudService = () => {
       {
         question: 'What makes on-premises ideal compared to the cloud?',
         answer:
-          'To utilize on-premise software, businesses must first acquire a license or physical copy of the program. Security is typically better with on-premises software licencing and complete instances residing within an organization’s premises than with cloud computing.',
+          'To utilize on-premise software, businesses must first acquire a license or physical copy of the program. Security is typically better with on-premises software licencing and complete instances residing within an organization\'s premises than with cloud computing.',
       }
     ];
 
@@ -88,9 +88,9 @@ const CloudService = () => {
 
 
     return (
-      <div className="p-6 max-w-4xl mx-auto min-w-full">
-        <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">FAQ</h1>
-        <div className="bg-blue-50 rounded-lg p-6 w-full">
+      <div className="p-4 sm:p-6 max-w-full mx-auto w-full">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8 text-gray-900">FAQ</h1>
+        <div className="bg-blue-50 rounded-lg p-4 sm:p-6 w-full">
           {faqs.map((faq, index) => (
             <FAQItem
               key={index}
@@ -131,33 +131,33 @@ const CloudService = () => {
     <>
       <div className="min-h-screen bg-white text-black font-sans">
         {/* Hero Section with Background */}
-        <div className="w-full h-56 flex flex-col items-center justify-center relative overflow-hidden bg-custom text-center px-auto">
+        <div className="w-full h-auto py-12 sm:h-56 flex flex-col items-center justify-center relative overflow-hidden bg-custom text-center px-4">
           <div className="absolute inset-0 opacity-70"></div>
-          <h1 className="text-5xl font-bold text-white z-10">SAP MIGRATION</h1>
-          <h1 className="text-5xl font-bold text-white z-10">ON-PREMISE TO CLOUD SERVICES</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white z-10 mb-2">SAP MIGRATION</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white z-10">ON-PREMISE TO CLOUD SERVICES</h1>
         </div>
 
         {/* Main content section */}
-        <div className="container mx-auto py-16 px-4 md:px-6">
+        <div className="container mx-auto py-8 sm:py-16 px-4 md:px-6">
 
 
           {/* Original content from the first component */}
-          <div className="flex flex-col md:flex-row items-center gap-8">
+          <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
             {/* Text content - left side */}
             <div className="w-full md:w-1/2 flex flex-col gap-4">
-              <h2 className="text-4xl font-bold text-gray-900">Seamlessly Migrate Your SAP Business Architecture to Cloud</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Seamlessly Migrate Your SAP Business Architecture to Cloud</h2>
 
               <p className="text-gray-700 mt-4">
                 With our <b>SAP on premise to cloud migration</b> expertise, maximize your business. Our comprehensive roadmap uses cutting-edge technology to streamline the transition and increase efficiency and agility. We guide you from assessment to implementation with our proven track record and personalized approach, minimizing disruption and maximizing ROI. Trust VSD Technologies to help you streamline, scale, and future-proof your SAP landscape as you embrace digital transformation.
               </p>
 
-              <button className="bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-medium py-1 w-60 border border-transparent hover:border-blue-600 rounded-full transition duration-300 z-10 mt-4">
+              <button className="bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-medium py-1 w-full sm:w-60 border border-transparent hover:border-blue-600 rounded-full transition duration-300 z-10 mt-4">
                 Schedule a Free Consultation
               </button>
             </div>
 
             {/* Image - right side */}
-            <div className="w-full md:w-1/2 flex justify-center">
+            <div className="w-full md:w-1/2 flex justify-center mt-6 md:mt-0">
               <img
                 src={Consultant}
                 alt="Team collaborating on digital transformation"
@@ -167,23 +167,23 @@ const CloudService = () => {
           </div>
 
 
-          <div className="flex flex-col md:flex-row items-start gap-8 px-4 md:px-28 py-10 mt-12">
+          <div className="flex flex-col md:flex-row items-start gap-6 sm:gap-8 px-2 sm:px-4 md:px-12 lg:px-28 py-6 sm:py-10 mt-8 sm:mt-12">
             {/* Left side content */}
             <div className="w-full md:w-1/2 flex flex-col gap-4">
 
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Perks of Associating with VSD Technologies for On-Premise to Cloud SAP Migration Services:
               </h2>
 
               <p className="text-gray-700 mt-4">
-                SAP Automation’s on-premise to cloud migration expertise can digitalize your business. At VSD Technologies, we minimize disruption and maximize efficiency and scalability during our seamless transition process. With years of experience and a proven track record, we help organizations migrate and optimize SAP systems for the cloud. SAP cloud solutions give businesses agility, innovation, and cost savings to stay ahead in today’s competitive landscape. Trust SAP Automation to maximize SAP system potential and advance your business.
+                SAP Automation's on-premise to cloud migration expertise can digitalize your business. At VSD Technologies, we minimize disruption and maximize efficiency and scalability during our seamless transition process. With years of experience and a proven track record, we help organizations migrate and optimize SAP systems for the cloud. SAP cloud solutions give businesses agility, innovation, and cost savings to stay ahead in today's competitive landscape. Trust SAP Automation to maximize SAP system potential and advance your business.
               </p>
 
               <p className="text-gray-700 mt-4">
                 We at VSD Technologies offer seamless <b>SAP on premise to cloud migration</b> for minimal disruption and maximum business efficiency.
               </p>
 
-              <button className="bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-medium py-2 w-64 border border-transparent hover:border-blue-600 rounded-full transition duration-300 z-10 mt-4">
+              <button className="bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-medium py-2 w-full sm:w-64 border border-transparent hover:border-blue-600 rounded-full transition duration-300 z-10 mt-4">
                 Schedule a Free Consultation
               </button>
             </div>
@@ -199,13 +199,13 @@ const CloudService = () => {
           </div>
 
           <div className="max-w-6xl mx-auto px-4 py-8">
-            <h1 className="text-4xl font-bold text-center mb-12">Our Process</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">Our Process</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
               {steps.map((step) => (
                 <div
                   key={step.id}
-                  className={`border rounded-lg p-8 flex flex-col items-center cursor-pointer transition duration-300 ${selectedStep === step.id
+                  className={`border rounded-lg p-6 sm:p-8 flex flex-col items-center cursor-pointer transition duration-300 ${selectedStep === step.id
                     ? 'bg-blue-500 text-white'
                     : 'bg-white hover:text-blue-500'
                     }`}
@@ -215,13 +215,13 @@ const CloudService = () => {
                     <img
                       src={step.icon}
                       alt=""
-                      className={`w-[50px] h-[50px] transition duration-300 ${selectedStep === step.id
+                      className={`w-[40px] sm:w-[50px] h-[40px] sm:h-[50px] transition duration-300 ${selectedStep === step.id
                         ? 'filter brightness-0 invert' // White when selected
                         : 'text-blue-500' // Blue by default
                         }`}
                     />
                   </div>
-                  <h2 className="text-xl font-semibold text-center mb-2">{step.title}</h2>
+                  <h2 className="text-lg sm:text-xl font-semibold text-center mb-2">{step.title}</h2>
                 </div>
               ))}
             </div>
@@ -235,15 +235,15 @@ const CloudService = () => {
           </div>
 
 
-          <div className="container mx-auto py-20 px-4 md:px-6">
+          <div className="container mx-auto py-10 sm:py-20 px-4 md:px-6">
             {/* Original content from the first component */}
-            <div className="flex flex-col md:flex-row items-center gap-8 mx-20">
+            <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 mx-2 sm:mx-4 md:mx-8 lg:mx-20">
               {/* Text content - left side */}
               <div className="w-full md:w-1/2 flex flex-col gap-4">
-                <h2 className="text-4xl font-bold text-gray-900">Ace the Business Goal Chase with Real-Time Data Insights on SAP Cloud</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Ace the Business Goal Chase with Real-Time Data Insights on SAP Cloud</h2>
 
                 <p className="text-gray-700 mt-4">
-                  Choose us for reliable <b>SAP on premise to cloud migration</b>. We plan, test, and support your business transition to make it easy. Our experts’ years of experience and technical knowledge ensure a smooth migration process for every project. Rest assured that we will protect your data and exceed your expectations.
+                  Choose us for reliable <b>SAP on premise to cloud migration</b>. We plan, test, and support your business transition to make it easy. Our experts' years of experience and technical knowledge ensure a smooth migration process for every project. Rest assured that we will protect your data and exceed your expectations.
                 </p>
 
                 <p className="text-gray-700 mt-4">
@@ -254,57 +254,65 @@ const CloudService = () => {
                   Choose us for <b>SAP migration from on premise to cloud</b> because of our unparalleled expertise and experience. Our experienced consultants have completed many migration projects, ensuring smooth transitions and optimal results for our clients. Our SAP and cloud expertise allows us to customize solutions for your business. Excellence is our goal from planning and execution to post-migration support.
                 </p>
 
-                <button className="bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-medium py-2 w-96 border border-transparent hover:border-blue-600 rounded-full transition duration-300 z-10 mt-4">
+                <button className="bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-medium py-2 w-full sm:w-72 md:w-96 border border-transparent hover:border-blue-600 rounded-full transition duration-300 z-10 mt-4">
                   Schedule a Free Consultation
                 </button>
               </div>
 
               {/* Image - right side */}
-              <div className="w-full md:w-1/2 flex justify-center">
+              <div className="w-full md:w-1/2 flex justify-center mt-6 md:mt-0">
                 <img
                   src={Services}
                   alt="Team collaborating on digital transformation"
-                  className="max-w-full h-full "
+                  className="max-w-full h-auto"
                 />
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center gap-8 mx-20">
+          <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 mx-2 sm:mx-4 md:mx-8 lg:mx-20">
 
-            {/* Image - right side */}
+            {/* Image - left side (on mobile it will be at top) */}
             <div className="w-full md:w-1/2 flex justify-center">
               <img
                 src={Digital}
                 alt="Team collaborating on digital transformation"
-                className="max-w-full h-full "
+                className="max-w-full h-auto"
               />
             </div>
 
 
-            {/* Text content - left side */}
-            <div className="w-full md:w-1/2 flex flex-col gap-4 my-10">
-              <h2 className="text-4xl font-bold text-gray-900">SAP MIGRATION – ON-PREMISE TO CLOUD SERVICES</h2>
+            {/* Text content - right side (on mobile it will be below) */}
+            <div className="w-full md:w-1/2 flex flex-col gap-4 my-6 sm:my-10">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">SAP MIGRATION – ON-PREMISE TO CLOUD SERVICES</h2>
 
               <p className="text-gray-700 mt-4">
-              Choose us for fast SAP on-premise to cloud migration. Our dedicated team follows strict timelines and project milestones to ensure a smooth transition. We guarantee timely delivery without compromising quality with our proven expertise and efficient project management. 
+                Choose us for fast SAP on-premise to cloud migration. Our dedicated team follows strict timelines and project milestones to ensure a smooth transition. We guarantee timely delivery without compromising quality with our proven expertise and efficient project management.
               </p>
 
               <p className="text-gray-700 mt-4">
-              VSD Technologies offers unmatched expertise and commitment to <b>SAP migration from on premise to cloud</b> teamwork. We have SAP migration experts who ensure smooth execution and timely delivery. Our customer-centric approach prioritizes your business needs and goals, providing personalized solutions and continuous migration support. Trust our passionate team to simplify SAP migration, reduce risks, and maximize cloud benefits.
+                VSD Technologies offers unmatched expertise and commitment to <b>SAP migration from on premise to cloud</b> teamwork. We have SAP migration experts who ensure smooth execution and timely delivery. Our customer-centric approach prioritizes your business needs and goals, providing personalized solutions and continuous migration support. Trust our passionate team to simplify SAP migration, reduce risks, and maximize cloud benefits.
               </p>
 
-              <button className="bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-medium py-2 w-96 border border-transparent hover:border-blue-600 rounded-full transition duration-300 z-10 mt-4">
+              <button className="bg-blue-500 hover:bg-white text-white hover:text-blue-500 font-medium py-2 w-full sm:w-72 md:w-96 border border-transparent hover:border-blue-600 rounded-full transition duration-300 z-10 mt-4">
                 Schedule a Free Consultation
               </button>
             </div>
-
-
           </div>
-
         </div>
       </div>
       <Faqs />
+
+
+      {/* Form Title */}
+      <div className="text-center  md:mb-8">
+        <p className="text-blue-400 text-xl sm:text-2xl md:text-3xl mb-2 tracking-widest">Let's Talk!!</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
+          How Your Business can get benefitted from SAP On-Premise to Cloud Migration Services.
+        </h1>
+      </div>
+
+      <Form />
     </>
   );
 };

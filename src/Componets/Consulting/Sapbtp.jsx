@@ -1,12 +1,10 @@
 import React from 'react';
-
 import BTP from "../../Assets/BTP-Technology.jpg" 
 import env1 from "../../Assets/enviroment1.jpg"
 import env2 from "../../Assets/enviroment2.jpg"
 import env3 from "../../Assets/enviroment3.jpg"
 import drive from "../../Assets/deep-drive.jpg"
 import glonal from "../../Assets/glonal.jpg"
-
 import interview from "../../Assets/Interview.png"
 import technoligies from "../../Assets/Technologies.png"
 
@@ -17,11 +15,11 @@ const SapBtpPage = () => {
       <div className="w-full h-60 bg-custom flex items-center justify-center relative overflow-hidden px-4">
         <div className="z-10 flex flex-col items-center text-center">
           <h1 className="text-4xl font-bold text-white mb-3">SAP BTP</h1>
-          <p className="text-white text-base max-w-2xl text-left">
+          <p className="text-white text-base max-w-4xl text-left">
             It is an integrated platform offered by SAP that provides a range of tools, services, and technologies to
             help businesses develop, integrate, and extend their applications in the cloud.
           </p>
-          <p className="text-white text-base max-w-2xl mt-2 text-left">
+          <p className="text-white text-base max-w-4xl mt-2 text-left">
             SAP BTP is designed to support the creation of innovative business applications, data integration, and
             advanced analytics. It incorporates various services and capabilities, including:
           </p>

@@ -5,7 +5,7 @@ import Lifecycle from "../../Assets/Lifecycle.png"
 import usertie from '../../Icons/user-tie.svg'
 import check from '../../Icons/check.svg'
 import dollar from '../../Icons/dollar.svg'
-
+import Form from "../Form"
 
 const Sapams = () => {
 
@@ -276,22 +276,29 @@ const Sapams = () => {
 
 
           {/* Introduction text */}
-          <div className="text-center mb-12 max-w-4xl mx-auto">
+          <div className="text-left mb-12 max-w-full mx-auto">
             <h1 className="text-4xl font-bold text-gray-900 pb-2">SAP AMS SERVICES</h1>
             <p className="text-gray-700">
               At VSD Technologies, we offer dedicated <b>SAP AMS services</b> (AMS) teamwork to maximize your SAP landscape. Professional SAP consultants provide customized AMS solutions for your business. Our dedicated team provides high-quality support and maintenance to optimize SAP system performance, reliability, and efficiency. We aim to exceed customer expectations through proactive communication, prompt service, and continuous improvement.
             </p>
 
-            <p className="text-gray-700">
+            <p className="text-gray-700 mt-10">
               At VSD Technologies, our SAP technical support services are strategically designed to elevate and optimize your ERP system. We offer expertise that can enhance your application portfolio, unlocking additional value for your business.
             </p>
           </div>
-
-          
-
         </div>
       </div>
       <Faqs />
+
+      {/* Form Title */}
+      <div className="text-center  md:mb-8">
+        <p className="text-blue-400 text-xl sm:text-2xl md:text-3xl mb-2 tracking-widest">Let's Talk!!</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
+          How Your Business can get benefitted from SAP AMS Services.
+        </h1>
+      </div>
+
+      <Form />
     </>
   );
 };
